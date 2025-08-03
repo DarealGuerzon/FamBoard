@@ -1,90 +1,172 @@
-# FamBoard
+# FamBoard - Family Task Management App
 
-FamBoard is a collaborative task management web app designed for families. It helps you and your siblings organize, assign, and track tasks with both a list view and a calendar view. Easily monitor everyone's to-dos and keep your family on track!
+A modern, intuitive task management application designed for families and small teams to organize, track, and collaborate on tasks together.
 
-## Features
+## 🚀 Features
 
-- 📝 **Task List View:** See all tasks in a sortable, filterable list.
-- 📅 **Calendar View:** Visualize tasks by due date on a calendar.
-- 🚦 **Priority & Status:** Assign priorities and track progress (Pending, In Progress, Completed).
-- 👨‍👩‍👧‍👦 **Collaborative:** Designed for use by families or small groups.
-- ⚡ **Modern UI:** Built with React, Tailwind CSS v4, and Vite for a fast, responsive experience.
-- 🗄️ **Backend:** Node.js, Express, and MongoDB for robust data storage.
+- **Task Management**: Create, edit, and delete tasks with detailed descriptions
+- **Priority System**: Set task priorities (Low, Medium, High) with visual indicators
+- **Status Tracking**: Track task progress (To Do, In Progress, Done)
+- **Due Date Management**: Set and track due dates with smart notifications
+- **Team Assignment**: Assign tasks to family members or team members
+- **Dual View Modes**: 
+  - **List View**: Clean, organized task list with priority and status badges
+  - **Calendar View**: Visual calendar representation of tasks
+- **Smart Notifications**: Visual indicators for overdue tasks and due today items
+- **User Management**: Add and manage team members
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Modern UI**: Beautiful gradient design with smooth animations
 
-## Getting Started
+## 🛠️ Tech Stack
+
+### Frontend
+- **React** - Modern UI framework
+- **Tailwind CSS** - Utility-first CSS framework
+- **Vite** - Fast build tool and development server
+
+### Backend
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web application framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB object modeling
+
+## 📦 Installation
 
 ### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB (local installation or MongoDB Atlas)
 
-- Node.js (v18+ recommended)
-- npm
-- MongoDB Atlas account (or local MongoDB)
+### Setup Instructions
 
-### Installation
-
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/yourusername/FamBoard.git
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
    cd FamBoard
    ```
 
-2. **Install dependencies:**
+2. **Install backend dependencies**
+   ```bash
+   cd server
+   npm install
+   ```
 
-   - For the backend:
-     ```sh
-     cd server
-     npm install
-     ```
+3. **Install frontend dependencies**
+   ```bash
+   cd ../client
+   npm install
+   ```
 
-   - For the frontend:
-     ```sh
-     cd ../client
-     npm install
-     ```
+4. **Environment Setup**
+   
+   Create a `.env` file in the `server` directory:
+   ```env
+   MONGODB_URI=your_mongodb_connection_string
+   PORT=5000
+   ```
 
-3. **Configure environment variables:**
+5. **Start the development servers**
 
-   - In `server/.env`, set your MongoDB connection string:
-     ```
-     MONGO_URI=your_mongodb_connection_string
-     ```
-
-4. **Run the backend:**
-   ```sh
+   **Backend (Terminal 1):**
+   ```bash
    cd server
    npm start
    ```
 
-5. **Run the frontend:**
-   ```sh
-   cd ../client
+   **Frontend (Terminal 2):**
+   ```bash
+   cd client
    npm run dev
    ```
 
-6. **Open your browser:**  
-   Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+6. **Access the application**
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:5000
 
-## Project Structure
+## 🎯 Usage
+
+### Creating Tasks
+1. Fill out the task form with title, description, and due date
+2. Assign the task to a team member
+3. Set priority level (Low, Medium, High)
+4. Choose initial status (To Do, In Progress, Done)
+5. Click "Create Task"
+
+### Managing Tasks
+- **List View**: See all tasks in a clean, organized list
+- **Calendar View**: Visualize tasks on a calendar
+- **Priority Indicators**: Color-coded priority badges
+- **Status Tracking**: Update task status as work progresses
+- **Due Date Alerts**: Visual indicators for overdue and due-today tasks
+
+### Adding Team Members
+1. Click "Add User" button
+2. Enter the team member's name
+3. Click "Add" to save
+
+## 📁 Project Structure
 
 ```
 FamBoard/
-  client/    # React frontend (Vite + Tailwind CSS)
-  server/    # Express backend (Node.js + MongoDB)
+├── client/                 # React frontend
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── pages/         # Page components
+│   │   ├── api/           # API service functions
+│   │   └── assets/        # Static assets
+│   └── public/            # Public assets
+├── server/                # Node.js backend
+│   ├── config/            # Database configuration
+│   ├── controllers/       # Route controllers
+│   ├── middleware/        # Custom middleware
+│   ├── models/            # Database models
+│   └── routes/            # API routes
+└── README.md
 ```
 
-## Usage
+## 🔧 API Endpoints
 
-- Add, edit, and delete tasks for you and your siblings.
-- Switch between list and calendar views to monitor progress.
-- Use priorities and statuses to organize your workflow.
+### Tasks
+- `GET /api/tasks` - Get all tasks
+- `POST /api/tasks` - Create new task
+- `DELETE /api/tasks/:id` - Delete task
 
-## Contributing
+### Users
+- `GET /api/users` - Get all users
+- `POST /api/users` - Create new user
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+## 🎨 Key Features
 
-## License
+### Smart Due Date Formatting
+- "Due today" for same-day tasks
+- "Due tomorrow" for next-day tasks
+- "Due in X days" for upcoming tasks
+- "X days overdue" for late tasks
 
-MIT
+### Visual Status Indicators
+- **Overdue**: Red border and badge for overdue tasks
+- **Due Today**: Amber border and badge for today's tasks
+- **Completed**: Strikethrough text and reduced opacity
 
----
+### Responsive Design
+- Mobile-friendly interface
+- Smooth hover animations
+- Clean, modern UI with gradients
 
-**Made with ❤️ for families who love to stay organized!**
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- Built with React and Node.js
+- Styled with Tailwind CSS
+- Icons from Heroicons
+- Database powered by MongoDB
